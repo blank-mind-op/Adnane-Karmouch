@@ -1,4 +1,7 @@
 package ma.xproce.gestionconference.dao.repositories;
 
-public interface InviteRepository {
+import ma.xproce.gestionconference.dao.entities.Invite;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface InviteRepository extends JpaRepository<Invite,Integer> {
 }
