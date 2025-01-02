@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Sessions</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center">Sessions</h1>
+    <a href="/sessions/add-session" class="btn btn-primary mb-3">Add Session</a>
+    <table class="table table-striped">
+        <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Moderator</th>
+            <th>Room</th>
+            <th>Conferences</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="session : ${sessions}">
+            <td th:text="${session.id}">1</td>
+            <td th:text="${session.nom}">Session Name</td>
+            <td th:text="${session.moderateur.nom}">Moderator Name</td>
+            <td th:text="${session.salle.nom}">Room Name</td>
+            <td>
+                <ul>
+                    <li th:each="conference : ${session.conferences}" th:text="${conference.titre}">Conference Title</li>
+                </ul>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
